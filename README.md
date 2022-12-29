@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install`
+
 ### `npm run json-server` - for local server mock (not needed for app to run)
 
 ### `npm run start` - for client
