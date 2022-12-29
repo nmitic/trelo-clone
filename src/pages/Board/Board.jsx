@@ -6,7 +6,8 @@ import {ACTIONS, reducer} from "./service";
 
 export const Board = () => {
     const localData = localStorage.getItem('data')
-    const [boardState, dispatch] = useReducer(reducer, {data: JSON.parse(localData), boardFetched: true})
+    const initialData = localData ? JSON.parse(localData) : []
+    const [boardState, dispatch] = useReducer(reducer, {data: initialData, boardFetched: true})
     const {data, boardFetched} = boardState
 
     // Update remote only on user dispatched actions by checking boardFetched flag

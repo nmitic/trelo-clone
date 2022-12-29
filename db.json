@@ -3,97 +3,76 @@
     {
       "data": [
         {
-          "label": "open",
-          "id": "1672333028554",
+          "label": "Open",
+          "id": "1672340452935",
           "cards": [
             {
-              "content": "Just refactor in 10 minutes",
-              "id": "1672333205903"
+              "content": "Fix wrong input value",
+              "id": "1672340530591"
             },
             {
-              "content": "Add confetti",
-              "id": "1672333225830"
+              "content": "Kiss frog",
+              "id": "1672340537839"
             },
             {
-              "content": "Fix spacing",
-              "id": "1672333246970"
-            },
-            {
-              "content": "Works on your machine",
-              "id": "1672333259056"
+              "content": "Make product happy by implementing confetti on success form submittion",
+              "id": "1672340584942"
             }
           ]
         },
         {
-          "label": "progress",
-          "id": "1672333038203",
+          "label": "In Progress",
+          "id": "1672340472918",
           "cards": [
             {
-              "content": "play",
-              "id": "1672336264277"
-            },
-            {
-              "content": "",
-              "id": "1672337055554"
-            },
-            {
-              "content": "Kiss",
-              "id": "1672338329394"
-            },
-            {
-              "content": "new card is better\n",
-              "id": "1672338892770"
-            },
-            {
-              "content": "brahhh\n",
-              "id": "1672333185203"
+              "content": "Making a world a better place",
+              "id": "1672340600579"
             }
           ]
         },
         {
-          "label": "code review",
-          "id": "1672333046459",
-          "cards": []
-        },
-        {
-          "label": "under QA",
-          "id": "1672333057353",
+          "label": "Code Review",
+          "id": "1672340484651",
           "cards": [
             {
-              "content": "whut",
-              "id": "1672335381180"
+              "content": "Fix broken everything",
+              "id": "1672340547466"
+            },
+            {
+              "content": "Move pixels",
+              "id": "1672340519280"
             }
           ]
         },
         {
-          "label": "product review",
-          "id": "1672333065037",
-          "cards": []
+          "label": "In QA",
+          "id": "1672340493787",
+          "cards": [
+            {
+              "content": "That one not at all important feature",
+              "id": "1672340643438"
+            }
+          ]
         },
         {
-          "label": "release train",
-          "id": "1672333073438",
-          "cards": []
+          "label": "Product Review",
+          "id": "1672340503634",
+          "cards": [
+            {
+              "content": "Initial confetti version which somehow passed QA",
+              "id": "1672340661557"
+            }
+          ]
         },
         {
-          "label": "done",
-          "id": "1672333078278",
-          "cards": []
-        },
-        {
-          "label": "done some more",
-          "id": "1672335624532",
-          "cards": []
-        },
-        {
-          "label": "done some more more",
-          "id": "1672335627972",
-          "cards": []
-        },
-        {
-          "label": "done some mor more more",
-          "id": "1672335631543",
-          "cards": []
+          "label": "Done",
+          "id": "1672340507512",
+          "cards": [
+            {
+              "content": "Install redux, reinstall redux, manage state on your own... suffer even more",
+              "id": "1672340728199"
+            }
+          ]
         }
       ],
       "id": "boardId"

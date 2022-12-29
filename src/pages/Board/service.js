@@ -56,6 +56,7 @@ const getAddedCardBoard = (card, destinationListId, data) => {
 }
 
 const getAddedListBoard = (listItem, data) => {
+    console.log({data})
     return [...data, listItem]
 }
 
