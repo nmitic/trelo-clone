@@ -1,4 +1,5 @@
-import {useState} from 'react';
+import {useState} from 'react'
+import style from './Card.module.css'
 
 export const MODES = {
     DISPLAY: 'DISPLAY',
@@ -11,9 +12,9 @@ export const MODES = {
 export const Display = ({cardItem: {content}, setMode}) => {
     return (
         <div>
-            <div>{content}</div>
-            <button onClick={() => setMode(MODES.EDIT)}>edit</button>
-            <button onClick={() => setMode(MODES.MOVE)}>move</button>
+            <div className={style.Content}>{content}</div>
+            <button className={style.EditBtn} onClick={() => setMode(MODES.EDIT)}>edit</button>
+            <button className={style.ModeBtn} onClick={() => setMode(MODES.MOVE)}>move</button>
         </div>
     )
 }
@@ -33,19 +34,15 @@ export const Edit = ({setMode, cardItem, onSave}) => {
     }
     return (
         <form onSubmit={handleSave}>
-            <input ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
-            <button type='button' onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
-            <button type='submit'>save</button>
+            <textarea ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
+            <button className={style.CancelBtn} type='button' onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
+            <button className={style.SaveBtn} type='submit'>save</button>
         </form>
     )
 }
 
 export const Empty = ({setMode, label}) => {
-    return (
-        <div>
-            <button onClick={() => setMode(MODES.ADD_NEW)}>{label}</button>
-        </div>
-    )
+    return <button className={style.AddNewBtn} onClick={() => setMode(MODES.ADD_NEW)}>{label}</button>
 }
 
 export const Move = ({cardItem, setMode, boardData, onMove}) => {
@@ -101,8 +98,8 @@ export const Move = ({cardItem, setMode, boardData, onMove}) => {
                 })
             }
         </select>
-        <button type='submit'>Move</button>
-        <button type="button" onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
+        <button className={style.ModeBtn} type='submit'>Move</button>
+        <button className={style.CancelBtn} type="button" onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
     </form>
 }
 
@@ -121,9 +118,9 @@ export const AddNew = ({setMode, onAddNew}) => {
     }
     return (
         <form onSubmit={handleSave}>
-            <input ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
-            <button type='button' onClick={() => setMode(MODES.EMPTY)}>Cancel</button>
-            <button type='submit'>save</button>
+            <textarea ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
+            <button className={style.CancelBtn} type='button' onClick={() => setMode(MODES.EMPTY)}>Cancel</button>
+            <button className={style.SaveBtn} type='submit'>save</button>
         </form>
     )
 }
@@ -137,32 +134,35 @@ export const Card =
          onMove
      }) => {
         const [mode, setMode] = useState(initialMode)
+        const renderCardMode = () => {
+            switch (mode) {
+                case MODES.DISPLAY:
+                    return <Display cardItem={cardItem} setMode={setMode}/>
+                case MODES.EDIT:
+                    return <Edit
+                        setMode={setMode}
+                        cardItem={cardItem}
+                        onSave={onSave}
+                    />
+                case MODES.ADD_NEW:
+                    return <AddNew
+                        setMode={setMode}
+                        onAddNew={onAddNew}
+                    />
+                case MODES.EMPTY:
+                    return <Empty setMode={setMode} label='add new card'/>
+                case MODES.MOVE:
+                    return <Move
+                        setMode={setMode}
+                        cardItem={cardItem}
+                        boardData={boardData}
+                        onMove={onMove}
+                    />
 
-        switch (mode) {
-            case MODES.DISPLAY:
-                return <Display cardItem={cardItem} setMode={setMode}/>
-            case MODES.EDIT:
-                return <Edit
-                    setMode={setMode}
-                    cardItem={cardItem}
-                    onSave={onSave}
-                />
-            case MODES.ADD_NEW:
-                return <AddNew
-                    setMode={setMode}
-                    onAddNew={onAddNew}
-                />
-            case MODES.EMPTY:
-                return <Empty setMode={setMode} label='add new card'/>
-            case MODES.MOVE:
-                return <Move
-                    setMode={setMode}
-                    cardItem={cardItem}
-                    boardData={boardData}
-                    onMove={onMove}
-                />
-
-            default:
-                return null
+                default:
+                    return null
+            }
         }
+
+        return <div className={style.Card}>{renderCardMode()}</div>
     }

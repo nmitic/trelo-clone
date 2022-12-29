@@ -1,0 +1,11 @@
+.List {
+    background: #ebecf0;
+    margin: 24px 6px;
+    padding: 0 12px;
+    color: #172b4e;
+}
+
+.ListLabel {
+    margin: 0;
+    padding: 24px 6px;
+}

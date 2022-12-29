@@ -1,23 +1,26 @@
-import {Card, MODES} from "../Card/Card";
+import {Card, MODES} from "../Card/Card"
+import {ACTIONS} from "../../service"
+import style from './List.module.css'
 
 export const List = ({listItem, dispatch, boardData}) => {
     const {cards, label, id: listId} = listItem
 
     return (
         <div>
-            <h4>{label}</h4>
-            {
-                cards.map((cardItem) => {
-                    const {id: cardId} = cardItem
+            <div className={style.List}>
+                <h4 className={style.ListLabel}>{label}</h4>
+                {
+                    cards.map((cardItem) => {
+                        const {id: cardId} = cardItem
 
-                    return (
-                        <div>
+                        return (
                             <Card
+                                key={cardId}
                                 cardItem={cardItem}
                                 boardData={boardData}
                                 onSave={content => {
                                     dispatch({
-                                        type: 'UPDATE_CARD',
+                                        type: ACTIONS.UPDATE_CARD,
                                         payload: {
                                             content,
                                             cardId,
@@ -27,7 +30,7 @@ export const List = ({listItem, dispatch, boardData}) => {
                                 }}
                                 onMove={({listIdDestination, position, cardItem}) => {
                                     dispatch({
-                                        type: 'MOVE_CARD',
+                                        type: ACTIONS.MOVE_CARD,
                                         payload: {
                                             listIdOrigin: listId,
                                             listIdDestination,
@@ -37,25 +40,25 @@ export const List = ({listItem, dispatch, boardData}) => {
                                     })
                                 }}
                             />
-                        </div>
-                    )
-                })
-            }
-            <Card
-                initialMode={MODES.EMPTY}
-                listId={listId}
-                dispatch={dispatch}
-                boardData={boardData}
-                onAddNew={content => {
-                    dispatch({
-                        type: 'ADD_CARD',
-                        payload: {
-                            content,
-                            listId
-                        }
+                        )
                     })
-                }}
-            />
+                }
+                <Card
+                    initialMode={MODES.EMPTY}
+                    listId={listId}
+                    dispatch={dispatch}
+                    boardData={boardData}
+                    onAddNew={content => {
+                        dispatch({
+                            type: ACTIONS.ADD_CARD,
+                            payload: {
+                                content,
+                                listId
+                            }
+                        })
+                    }}
+                />
+            </div>
         </div>
     )
 }

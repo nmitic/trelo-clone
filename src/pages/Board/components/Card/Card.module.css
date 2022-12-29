@@ -1,0 +1,22 @@
+.Card {
+    width: 200px;
+    margin-bottom: 6px;
+    padding: 12px;
+}
+
+.EditBtn, .ModeBtn, .CancelBtn, .SaveBtn {
+    margin: 0 6px 0 0;
+}
+
+.AddNewBtn {
+    width: 100%;
+    margin: 3px 0;
+}
+
+.Content {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 6px;
+    padding: 12px;
+}
