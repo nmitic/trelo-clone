@@ -34,7 +34,12 @@ export const Edit = ({setMode, cardItem, onSave}) => {
     }
     return (
         <form onSubmit={handleSave}>
-            <textarea ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
+            <textarea
+                ref={input => input && input.focus()}
+                className={style.TextArea}
+                value={content}
+                onChange={handleContentChange}
+            />
             <button className={style.CancelBtn} type='button' onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
             <button className={style.SaveBtn} type='submit'>save</button>
         </form>
@@ -66,38 +71,44 @@ export const Move = ({cardItem, setMode, boardData, onMove}) => {
         onMove({listIdDestination, position, cardItem})
     }
     return <form onSubmit={handleMove}>
-        <select
-            value={position}
-            onChange={handlePositionSelect}
-        >
-            {
-                selectedList.cards.map((card, index) => {
-                    return <option
-                        value={index}
-                        key={card.id}
-                        onChange={handlePositionSelect}
-                    >
-                        {index + 1}
-                    </option>
-                })
-            }
-            <option
-                value={selectedList.cards.length + 1}
+        <label className={style.Label}>
+            Position:
+            <select
+                value={position}
                 onChange={handlePositionSelect}
             >
-                {selectedList.cards.length + 1}
-            </option>
-        </select>
-        <select
-            value={listIdDestination}
-            onChange={handleListDestinationSelect}
-        >
-            {
-                boardData.map(list => {
-                    return <option value={list.id} key={list.id}>{list.label}</option>
-                })
-            }
-        </select>
+                {
+                    selectedList.cards.map((card, index) => {
+                        return <option
+                            value={index}
+                            key={card.id}
+                            onChange={handlePositionSelect}
+                        >
+                            {index + 1}
+                        </option>
+                    })
+                }
+                <option
+                    value={selectedList.cards.length + 1}
+                    onChange={handlePositionSelect}
+                >
+                    {selectedList.cards.length + 1}
+                </option>
+            </select>
+        </label>
+        <label className={style.Label}>
+            List:
+            <select
+                value={listIdDestination}
+                onChange={handleListDestinationSelect}
+            >
+                {
+                    boardData.map(list => {
+                        return <option value={list.id} key={list.id}>{list.label}</option>
+                    })
+                }
+            </select>
+        </label>
         <button className={style.ModeBtn} type='submit'>Move</button>
         <button className={style.CancelBtn} type="button" onClick={() => setMode(MODES.DISPLAY)}>Cancel</button>
     </form>
@@ -118,7 +129,12 @@ export const AddNew = ({setMode, onAddNew}) => {
     }
     return (
         <form onSubmit={handleSave}>
-            <textarea ref={input => input && input.focus()} type='text' value={content} onChange={handleContentChange}/>
+            <textarea
+                className={style.TextArea}
+                ref={input => input && input.focus()} // focus on render
+                value={content}
+                onChange={handleContentChange}
+            />
             <button className={style.CancelBtn} type='button' onClick={() => setMode(MODES.EMPTY)}>Cancel</button>
             <button className={style.SaveBtn} type='submit'>save</button>
         </form>

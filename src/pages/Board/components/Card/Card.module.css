@@ -20,3 +20,12 @@
     margin-bottom: 6px;
     padding: 12px;
 }
+
+.Label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.TextArea {
+    width: 100%;
+}
