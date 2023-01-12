@@ -1,4 +1,4 @@
-# Nikola Mitic InstaPro
+# Nikola Mitic
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
